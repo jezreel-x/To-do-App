@@ -1,38 +1,246 @@
-.App {
+* {
+  box-sizing: border-box;
+}
+
+
+body {
+  padding: 15px;
+}
+
+.mainDiv {
+  background-color: #00de94;
+  width: 50%;
+  max-width: 600px;
+  border: 1px solid black;
+  border-radius: 12px;
+  height: 450px;
+  overflow: auto;
+  margin: auto;
+  margin-top: 50px;
+}
+
+.mainDiv::after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+.todo-tasks {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 80%;
+  margin: auto;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  padding: 17px;
+  background-color: #BF00AC;
+  border: none;
+  border-radius: 8px;
+}
+
+.h1-todo {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 30px;
+  color: #444;
   text-align: center;
+  margin: 16px 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.input-btn {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+input#addText {
+  width: 300px;
+  padding: 17px;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  margin: auto;
+  margin-bottom: 16px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
+button.add-toDo {
+  margin-bottom: 16px;
+  width: 150px;
+  background-color: #BF00AC;
+  color: aliceblue;
+  border: none;
+  border-radius: 8px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 13px;
+  padding: 12px;
+  cursor: pointer;
+}
+
+.edit-del {
+  padding: 8px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  cursor: pointer;
+  border: none;
+  width: 60px;
+  margin: 5px;
+  border-radius: 8px;
+}
+
+div.edit-delete-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 35%;
+  max-width: fit-content;
+}
+
+.specific-task {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+button:hover {
+  transform: scale(1.1);
+  transition: 1s ease-in-out;
+}
+
+.result {
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #444;
+  margin-top: 20px;
+}
+
+
+/* Modal */
+.modal {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-toDo {
+  font-size: 18px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 12px;
+}
+
+#editText {
+  width: 300px;
+  padding: 17px;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+.modal-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-bottom: 50px;
+  margin: auto;
+  padding: 2px;
+  width: fit-content;
+}
+
+.modal-mainDiv {
+  padding: 20px;
+  width: 70%;
+  height: 180px;
+  background-color: #00AEFF;
+  border: none;
+  border-radius: 12px;
+  margin: auto;
+}
+
+.ok-cancel-btn {
+  padding: 10px;
+  background-color: #BF00AC;
+  color: black;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  border-radius: 9px;
+  cursor: pointer;
+}
+
+#ok-btn {
+  margin-right: 0px;
+}
+
+#cancel-btn {
+  margin-right: 15px;
+}
+
+.wrapperDiv {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  float: left;
+  padding: 10px;
+  max-height: 200px;
+  border-radius: 12px;
+  z-index: 1;
+  display: flex;
+  margin: auto;
+  animation: fadeIn 1.0s forwards;
+  transform: scale(1);
+}
+
+#demo::before {
+  content: '>>>';
+  margin-right: 8px;
+}
+
+/* Animations */
+@keyframes fadeIn {
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: scale(1.2);
   }
 }
+
+[class*='col-'] {
+  width: 100%;
+}
+
+@media screen and (min-width: 700px) {
+  .col-m-1 {width: 8.33%;}
+  .col-m-2 {width: 16.66%;}
+  .col-m-3 {width: 25%;}
+  .col-m-4 {width: 33.33%;}
+  .col-m-5 {width: 41.66%;}
+  .col-m-6 {width: 50%;}
+  .col-m-7 {width: 58.33%;}
+  .col-m-8 {width: 66.66%;}
+  .col-m-9 {width: 75%;}
+  .col-m-10 {width: 83.33%;}
+  .col-m-11 {width: 91.66%;}
+  .col-m-12 {width: 100%;}
+}
+
+@media screen and (min-width: 900px) {
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+}
+
